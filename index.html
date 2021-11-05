@@ -23,7 +23,7 @@
 
                 request.onreadystatechange = function(){
                     if(request.readyState == 4 && request.status == 200){
-                        // get the fucking activity
+                  
                         activity = request.responseText;
                         info = JSON.parse(activity);
                         console.log(info);
