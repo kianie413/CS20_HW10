@@ -23,10 +23,13 @@
 
                 request.onreadystatechange = function(){
                     if(request.readyState == 4 && request.status == 200){
-                  
+                       
                         activity = request.responseText;
                         info = JSON.parse(activity);
                         console.log(info);
+                        infoString = JSON.stringify(info);
+                        document.getElementById("json").innerHTML = "JSON String: " + infoString;  
+                        
 
                         document.getElementById("userData").innerHTML = "Try this activity: " + info.activity;
                         document.getElementById("pData").innerHTML = "Number of people needed: " + info.participants;
@@ -38,6 +41,7 @@
                         document.getElementById("userData").innerHTML = "Too sonn! Try again";
                     }
                 }
+
             }
         </script>
     </head>
@@ -54,6 +58,8 @@
             <p>The API I chose was <a href = "https://www.boredapi.com/api/activity" >boredapi.com</a> and what it does is generate random activities for you. For the API request, I chose to display the activity itself and the number of participants needed because that would provide enough necessary information in order to actually do the activity.</p>
             <p> When I am with my friends, we sometimes think to ourselves... "what should we do?" something I know many people must ask themselves on a random Friday or Saturday night. This API would be especially beneficial to remedy this problem. This may be something we even use in the future. Another use for this API is when you are babysitting children whether they be blood-related or not. Oftentimes, children need to be continuously stimulated with how much energy they have. If you run out of ideas on how to distract or amuse them, this API would be perfect to help manage them and have a fun time!</p>
         </div>
+        
+        <div id = "json"></div>
 
     </body>
 </html>
